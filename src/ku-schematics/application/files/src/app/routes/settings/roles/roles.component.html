@@ -1,0 +1,86 @@
+<div class="content__title">
+    <h1>角色管理</h1>
+</div>
+<div class="ant-card">
+    <div class="ant-card-body">
+        <div class="inline-block margin-bottom-15 width100">
+            <div class="fl search-block">
+                <nz-form-control class="fl">
+                    <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="anticon anticon-user">
+                        <input nz-input autocomplete="off" id="roleName" placeholder="搜索角色名/描述" [(ngModel)]="searchKey"
+                            (keyup.enter)="getRoles('search')">
+                    </nz-input-group>
+                    <ng-template #suffixTemplate>
+                        <i class="anticon anticon-close-circle" (click)="emptySearchKey()" *ngIf="searchKey"></i>
+                    </ng-template>
+                </nz-form-control>
+                <button nz-button nzType="primary" class="fl" (click)="getRoles('search')">搜索</button>
+            </div>
+            <button nz-button nzType="primary" (click)="addRole('add')" class="fr modalButton" [disabled]="canOperate('addRole')">
+                <i class="anticon anticon-plus"></i>新增</button>
+        </div>
+        <nz-table *ngIf="hasRoleResult" #nzTableRole [nzPageSize]="pageSize" [nzData]="dataSet" [(nzPageIndex)]='current'
+            [nzTotal]='nzTotal' [nzShowTotal]="tplTotal" [nzFrontPagination]="false" (nzPageIndexChange)="getRoles()"
+            class="cscsTable">
+            <thead>
+                <tr>
+                    <!-- <th nzWidth="10%">角色ID</th> -->
+                    <th nzWidth="20%">角色名</th>
+                    <th nzWidth="20%">描述</th>
+                    <th nzWidth="30%">权限</th>
+                    <th nzWidth="30%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-template ngFor let-data [ngForOf]="nzTableRole.data">
+                    <tr>
+                        <!-- <td>{{data.id}}</td> -->
+                        <td>
+                            <!-- <a (click)="viewDetail(data.id,data.name)" class="link-eye button-edit">
+                                {{data.name}}
+                                <i class="anticon anticon-eye"></i>
+                            </a> -->
+                            {{data.name}}
+                        </td>
+                        <td>{{data.description}}</td>
+                        <td>
+                            <span *ngIf="data.authorizations.length>3" class="authTd" nzPlacement="right" nz-popover
+                                [nzContent]="authContent" (nzVisibleChange)="popVisibleChange($event,data.authorizations)">
+                                <ng-container *ngFor="let item of data.authorizations;index as i">
+                                    <span class="authSquare" *ngIf="i<3">{{item.operationName}}</span>
+                                </ng-container>
+                                <i nz-icon type="ellipsis" theme="outline"></i>
+                            </span>
+                            <span *ngIf="data.authorizations.length<=3" class="authTd" nzPlacement="right"
+                                (nzVisibleChange)="popVisibleChange($event,data.authorizations)">
+                                <ng-container *ngFor="let item of data.authorizations;index as i">
+                                    <span class="authSquare" *ngIf="i<3">{{item.operationName}}</span>
+                                </ng-container>
+                            </span>
+
+                        </td>
+                        <td>
+                            <button nz-button nzType="default" class="button-edit modalButton2" nzSize="small" (click)="addRole('edit',data.id,data.name,data.description,data.authorizations)"
+                                [disabled]="canOperate('editRole',data.name)">
+                                编辑</button>
+                            <button nz-button nzType="default" nzSize="small" (click)="confirmDelete(data.userNum,data.name,data.id)"
+                                [disabled]="canOperate('editRole',data.name)">
+                                删除</button>
+                        </td>
+                    </tr>
+                    <ng-template #authContent>
+                        <div class="authContainer">
+                            <span *ngFor="let item of data.authorizations" class="authSquare">{{item.operationName}}</span>
+                        </div>
+                    </ng-template>
+                </ng-template>
+            </tbody>
+        </nz-table>
+        <ng-template #tplTotal>共{{nzTotal}}条</ng-template>
+        <ng-container *ngIf="!hasRoleResult">
+            <img src="../../../../assets/img/noResult.png" class="no-result-img" />
+            <p class="no-result-text">没有符合条件的角色</p>
+        </ng-container>
+    </div>
+
+</div>

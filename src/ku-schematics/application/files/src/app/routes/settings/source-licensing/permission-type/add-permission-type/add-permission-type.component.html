@@ -1,0 +1,23 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="addForm" (keyup.enter)="submitForm()">
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired nzFor="operationCode">权限名</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input formControlName="operationName" id="operationName" [placeholder]="requiredPlaceholder"
+                autocomplete="off" #focusInput>
+            <nz-form-explain *ngIf="validateForm.get('operationName').dirty && validateForm.get('operationName').errors">
+                权限名长度为1-20位
+            </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzRequired nzFor="operationCode">权限码</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input formControlName="operationCode" id="operationCode" [placeholder]="codePlaceholder"
+                autocomplete="off">
+            <nz-form-explain *ngIf="validateForm.get('operationCode').dirty && validateForm.get('operationCode').errors">
+                权限码长度为3-40位，限字母、冒号
+            </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+
+</form>

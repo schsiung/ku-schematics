@@ -1,0 +1,198 @@
+[{
+        "roleName": "admin",
+        "entry": "/account",
+        "menu": [{
+            "text": "主导航",
+            "group": true,
+            "children": [{
+                    "text": "首页",
+                    "link": "/dashboard",
+                    "icon": "home",
+                    "theme": "outline"
+                },
+                {
+                    "text": "设置",
+                    "icon": "usergroup-add",
+                    "theme": "outline",
+                    "children": [{
+                            "text": "角色管理",
+                            "link": "/roles"
+                        },
+                        {
+                            "text": "用户管理",
+                            "link": "/account"
+                        },
+                        {
+
+                            "text": "权限管理",
+                            "link": "/permission-type"
+
+                        }
+                    ]
+                }
+
+            ]
+        }],
+        "aclRules": [{
+                "url": "/account",
+                "title": "用户管理",
+                "guard": {
+                    "mode": "oneOf",
+                    "role": ["admin"]
+                }
+            },
+            {
+                "url": "/roles",
+                "title": "角色管理",
+                "guard": {
+                    "mode": "oneOf",
+                    "role": ["admin"]
+                }
+            }
+        ],
+        "operation": [{
+                "type": "addUser",
+                "allow": 0
+            }, {
+                "type": "editUser",
+                "allow": 2
+            }, {
+                "type": "changePassword",
+                "allow": 0
+            }, {
+                "type": "resetPassword",
+                "allow": 2
+            }, {
+                "type": "disableUser",
+                "allow": 2
+            }, {
+                "type": "enableUser",
+                "allow": 0
+            }, {
+                "type": "unlockUser",
+                "allow": 0
+            }, {
+                "type": "addRole",
+                "allow": 0
+            }, {
+                "type": "editRole",
+                "allow": 2
+            }, {
+                "type": "deleteRole",
+                "allow": 2
+            }, {
+                "type": "addResource",
+                "allow": 0
+            },
+            {
+                "type": "editResource",
+                "allow": 0
+            },
+            {
+                "type": "deleteResource",
+                "allow": 0
+            },
+            {
+                "type": "addPermission",
+                "allow": 0
+            },
+            {
+                "type": "editPermission",
+                "allow": 0
+            },
+            {
+                "type": "deletePermission",
+                "allow": 0
+            }
+        ]
+
+    },
+    {
+        "roleName": "other",
+        "entry": "/dashboard",
+        "menu": [{
+            "text": "主导航",
+            "group": true,
+            "children": [{
+                "text": "首页",
+                "link": "/dashboard",
+                "icon": "home",
+                "theme": "outline"
+            }]
+        }],
+        "aclRules": [],
+        "operation": [{
+            "type": "addUser",
+            "allow": 1
+        }, {
+            "type": "EditUser",
+            "allow": 1
+        }, {
+            "type": "changePassword",
+            "allow": 1
+        }, {
+            "type": "resetPassword",
+            "allow": 1
+        }, {
+            "type": "disableUser",
+            "allow": 1
+        }, {
+            "type": "enableUser",
+            "allow": 1
+        }, {
+            "type": "unlockUser",
+            "allow": 1
+        }, {
+            "type": "addRole",
+            "allow": 1
+        }, {
+            "type": "editRole",
+            "allow": 1
+        }, {
+            "type": "deleteRole",
+            "allow": 1
+        }]
+
+    }, {
+        "roleName": "none",
+        "entry": "/404",
+        "menu": [{
+            "text": "主导航",
+            "group": true,
+            "children": []
+        }],
+        "aclRules": [],
+        "operation": [{
+            "type": "addUser",
+            "allow": 1
+        }, {
+            "type": "EditUser",
+            "allow": 1
+        }, {
+            "type": "changePassword",
+            "allow": 1
+        }, {
+            "type": "resetPassword",
+            "allow": 1
+        }, {
+            "type": "disableUser",
+            "allow": 1
+        }, {
+            "type": "enableUser",
+            "allow": 1
+        }, {
+            "type": "unlockUser",
+            "allow": 1
+        }, {
+            "type": "addRole",
+            "allow": 1
+        }, {
+            "type": "editRole",
+            "allow": 1
+        }, {
+            "type": "deleteRole",
+            "allow": 1
+        }]
+
+    }
+]

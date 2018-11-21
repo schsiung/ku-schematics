@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "id": "SchematicsKuNgAdd",
+  "title": "Ku Library NG Add Options Schema",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "codeStyle": {
+      "type": "boolean",
+      "default": false,
+      "description": "Do not add code styles (e.g., --codeStyle)"
+    },
+    "form": {
+      "type": "boolean",
+      "description": "Generates form.",
+      "default": false
+    },
+    "defaultLanguage": {
+      "type": "string",
+      "description": "Specify default language [https://ng-alain.com/docs/i18n].",
+      "default": "zh-Hans"
+    },
+    "i18n": {
+      "type": "boolean",
+      "description": "Generates i18n.",
+      "default": false
+    },
+    "hmr": {
+      "type": "boolean",
+      "description": "Generates hmr files and configuration",
+      "default": false
+    }
+  }
+}

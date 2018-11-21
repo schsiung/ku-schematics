@@ -1,9 +1,14 @@
 {
-  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
   "schematics": {
-    "ku-schematics": {
-      "description": "A blank schematic.",
-      "factory": "./ku-schematics/index#kuSchematics"
+    "application": {
+      "factory": "./application",
+      "schema": "./application/schema.json",
+      "description": "Create an Ku application."
+    },
+    "kuAdd": {
+      "factory": "./application",
+      "schema": "./application/schema.json",
+      "description": "Create an Ku application."
     }
   }
 }

@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="info inline-block">
+        <span class="fl">{{description}}</span>
+        <div class="search-block fr">
+            <nz-form-control class="fl">
+                <nz-input-group [nzSuffix]="clearUser" nzPrefixIcon="anticon anticon-user">
+                    <input nz-input autocomplete="off" id="roleName" placeholder="搜索用户名/显示名" [(ngModel)]="searchKey"
+                        (keyup.enter)="getUserList('search')">
+                </nz-input-group>
+                <ng-template #clearUser>
+                    <i class="anticon anticon-close-circle" (click)="emptySearchKey()" *ngIf="searchKey"></i>
+                </ng-template>
+            </nz-form-control>
+            <button nz-button nzType="primary" class="fl" (click)="getUserList('search')">搜索</button>
+        </div>
+    </div>
+    <nz-table nzSize="small" #nzTable [(nzPageSize)]="pageSize" [nzScroll]="{y:'260px'}" [nzData]="dataSet"
+        [(nzPageIndex)]='current' [nzFrontPagination]="false" (nzPageIndexChange)="getUserList()" [nzTotal]='nzTotal'>
+        <thead>
+            <tr>
+                <th nzWidth="100px">用户ID</th>
+                <th nzWidth="120px">用户名</th>
+                <th nzWidth="120px">显示名</th>
+                <th nzWidth="80px">状态</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-template ngFor let-data [ngForOf]="nzTable.data">
+                <tr>
+
+                    <td>{{data.id}}</td>
+                    <td>{{data.userName}}</td>
+                    <td>
+                        <a (click)="viewDetail(data.id,data.displayName)" class="link-eye">
+                            {{data.displayName}}
+                            <i class="anticon anticon-eye"></i>
+                        </a>
+                    </td>
+                    <td>{{data.status
+                        <1? '正常' : '禁用' }}</td> </tr> </ng-template> </tbody> </nz-table> <p class="total">总数：{{nzTotal}}
+                            个</p>
+</div>

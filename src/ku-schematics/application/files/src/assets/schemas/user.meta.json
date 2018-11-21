@@ -1,0 +1,84 @@
+{
+    "properties": {
+        "name": {
+            "type": "string",
+            "title": "用户名",
+            "minLength": 2
+        },
+        "displayName": {
+            "type": "string",
+            "title": "显示名",
+            "minLength": 2
+        },
+        "birthday": {
+            "type": "number",
+            "title": "注册时间",
+            "format": "date"
+        },
+        "remark": {
+            "type": "string",
+            "title": "用户描述",
+            "ui": {
+                "widget": "textarea",
+                "autosize": true
+            }
+        },
+        "geo": {
+            "type": "string",
+            "title": "所在地",
+            "enum": [
+                {
+                    "value": 110000,
+                    "label": "北京",
+                    "parent": 0,
+                    "children": [
+                        {
+                            "value": 110100,
+                            "label": "北京市",
+                            "parent": 110000,
+                            "children": [
+                                {
+                                    "value": 110101,
+                                    "label": "东城区",
+                                    "parent": 110100,
+                                    "isLeaf": true
+                                },
+                                {
+                                    "value": 110105,
+                                    "label": "朝阳区",
+                                    "parent": 110100,
+                                    "isLeaf": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "default": [110000, 110100, 110105],
+            "ui": "cascader"
+        },
+        "roles": {
+            "type": "string",
+            "title": "角色",
+            "enum": [
+                {
+                    "label": "DNS管理",
+                    "value": 10
+                },
+                {
+                    "label": "ECS管理",
+                    "value": 11
+                },
+                {
+                    "label": "OSS管理",
+                    "value": 12
+                },
+                {
+                    "label": "RDS管理",
+                    "value": 13
+                }
+            ],
+            "default": 10
+        }
+    }
+}

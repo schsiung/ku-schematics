@@ -1,0 +1,61 @@
+<div class="content__title">
+    <h1>权限管理</h1>
+</div>
+<div class="ant-card">
+    <div class="ant-card">
+        <div class="ant-card-body">
+            <div class="inline-block margin-bottom-15 width100">
+                <div class="fl search-block">
+                    <nz-form-control class="fl">
+                        <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="anticon anticon-user">
+                            <input nz-input autocomplete="off" id="permissionName" placeholder="搜索权限码/权限名" [(ngModel)]="searchKey"
+                                (keyup.enter)="getPermission('search')">
+                        </nz-input-group>
+                        <ng-template #suffixTemplate>
+                            <i class="anticon anticon-close-circle" (click)="emptySearchKey()" *ngIf="searchKey"></i>
+                        </ng-template>
+                    </nz-form-control>
+                    <button nz-button nzType="primary" class="fl" (click)="getPermission('search')">搜索</button>
+                </div>
+                <button nz-button nzType="primary" (click)="addPermission('add')" class="fr modalButton">
+                    <i class="anticon anticon-plus"></i>新增</button>
+            </div>
+            <nz-table *ngIf="hasResouceResult" #nzTablePermission [nzPageSize]="pageSize" [nzData]="dataSet"
+                [(nzPageIndex)]='current' [nzTotal]='nzTotal' [nzShowTotal]="tplTotal" [nzFrontPagination]="false"
+                (nzPageIndexChange)="getPermission()" class="cscsTable">
+                <thead>
+                    <tr>
+                        <!-- <th nzWidth="10%">角色ID</th> -->
+                        <th nzWidth="33%">权限码</th>
+                        <th nzWidth="33%">权限名</th>
+                        <th nzWidth="33%">操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <ng-template ngFor let-data [ngForOf]="nzTablePermission.data">
+                        <tr>
+                            <td>
+                                {{data.operationCode}}
+                            </td>
+                            <td>{{data.operationName}}</td>
+                            <td>
+                                <button nz-button nzType="default" class="button-edit modalButton2" nzSize="small"
+                                    (click)="addPermission('edit',data.operationName,data.operationCode,data.operationId)"
+                                    [disabled]="canOperate('editPermission',data.name)">
+                                    编辑</button>
+                                <button nz-button nzType="default" nzSize="small" (click)="confirmDelete(data.operationName,data.operationId)"
+                                    [disabled]="canOperate('editPermission',data.name)">
+                                    删除</button>
+                            </td>
+                        </tr>
+                    </ng-template>
+                </tbody>
+            </nz-table>
+            <ng-template #tplTotal>共{{nzTotal}}条</ng-template>
+            <ng-container *ngIf="!hasResouceResult">
+                <img src="../../../../../assets/img/noResult.png" class="no-result-img" />
+                <p class="no-result-text">没有符合条件的数据</p>
+            </ng-container>
+        </div>
+
+    </div>

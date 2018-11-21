@@ -1,0 +1,103 @@
+<div class="content__title">
+    <h1>用户管理</h1>
+</div>
+<div class="ant-card">
+    <div class="ant-card-body">
+        <div class="inline-block margin-bottom-15 width100">
+            <div class="fl search-block">
+                <nz-form-control class="fl">
+                    <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="anticon anticon-user">
+                        <input nz-input id="searchKey" placeholder="搜索用户名/显示名" [(ngModel)]="searchKey" (keyup.enter)="getUsers('click')"
+                            autocomplete="off">
+                    </nz-input-group>
+                    <ng-template #suffixTemplate>
+                        <i class="anticon anticon-close-circle" (click)="emptySearchKey($event)" *ngIf="searchKey"></i>
+                    </ng-template>
+                </nz-form-control>
+                <button nz-button nzType="primary" class="fl" (click)="getUsers('click')">搜索</button>
+            </div>
+            <button nz-button nzType="primary" (click)="addAccount('add')" class="fr modalButton">
+                <i class="anticon anticon-plus"></i>新增</button>
+        </div>
+        <nz-table #rowSelectionTable [nzData]="dataSet" [(nzPageIndex)]='current' [nzTotal]='nzTotal' [(nzPageSize)]='pageSize'
+            [nzFrontPagination]="false" (nzPageIndexChange)="getUsers()" (nzPageSizeChange)="refreshStatus()" class="cscsTable"
+            [nzShowTotal]="tplTotal" *ngIf="hasSearchResult">
+            <thead (nzSortChange)="sort($event)" nzSingleSort>
+                <tr>
+                    <!-- <th class="checkbox" nzWidth="8%" nzShowCheckbox [(nzChecked)]="allChecked" [nzIndeterminate]="indeterminate"
+                        (nzCheckedChange)="checkAll($event)">
+                        <a class="delete-all" nz-popconfirm nzTitle="是否确认删除此{{checkedNumber}}位用户?" nzCondition="{{checkedNumber<1}}"
+                            (nzOnConfirm)="deleteAll()">删除</a>
+                    </th> -->
+                    <th nzWidth="15%" [(nzSort)]="userNameSortRule" nzShowSort nzSortKey="user_name">
+                        <a (click)="sort({key:'user_name'},'toggle')">用户名</a>
+                        <!-- 用户名 -->
+                    </th>
+                    <th nzWidth="15%" [(nzSort)]="displayNameSortRule" nzShowSort nzSortKey="display_name"><a (click)="sort({key:'display_name'},'toggle')">显示名</a></th>
+                    <th nzWidth="30%">角色</th>
+                    <th nzWidth="10%" nzShowFilter [nzFilters]="statusList" (nzFilterChange)="filterStatus($event)"
+                        [nzFilterMultiple]="false">状态</th>
+                    <!-- <th nzWidth="15%">状态</th> -->
+                    <th nzWidth="30%">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-template ngFor let-data [ngForOf]="rowSelectionTable.data">
+                    <tr>
+                        <!-- <td nzShowCheckbox [(nzChecked)]="data.checked" [nzDisabled]="data.disabled" (nzCheckedChange)="refreshStatus($event)"></td> -->
+                        <!-- <td [style.color]="data.status==0?'rgba(0, 0, 0)':'#b1b1b1'" class="username"> -->
+                        <td class="username">
+                            {{data.userName}}
+                        </td>
+                        <td>
+                            <!-- <a (click)="addAccount('view',data.id,data.displayName)" class="link-eye" [style.color]="data.status==0?'rgb(35, 151, 247)':'#b1b1b1'"> -->
+                            {{data.displayName}}
+                            <!-- <i class="anticon" [ngClass]="{'anticon-eye':data.status==0,'anticon-eye-o':data.status==1}"></i> -->
+                            <!-- </a> -->
+                        </td>
+                        <td>
+                            <ng-template ngFor let-data2 [ngForOf]="data.roles">
+                                <span class="role-name" [style.background]="data.status==0?randomColor(data2.id):'#ccc'">{{data2.name}}</span>
+                            </ng-template>
+                        </td>
+                        <!-- <td [style.color]="data.status==0?'rgba(0, 0, 0, 0.65)':'#b1b1b1'"> -->
+                        <td>
+                            <span class="status cscs-bg-1" *ngIf="data.status===0"><i class="anticon anticon-check"></i>正常</span>
+                            <span class="status cscs-bg-2" *ngIf="data.status===1"><i class="anticon anticon-exclamation-circle-o"></i>禁用</span>
+                            <span class="status cscs-bg-3" *ngIf="data.status===2"><i class="anticon anticon-lock"></i>锁定</span>
+                        <td>
+                            <button nz-button nzType="default" nzSize="small" (click)="addAccount('edit',data.id,data.displayName)"
+                                class="button-edit modalButton2" [disabled]="canOperate('editUser',data.roles)">
+                                编辑</button>
+
+                            <button nz-button nzType="default" nzSize="small" (click)="confirmReset(data.id,data.userName)"
+                                [disabled]="canOperate('resetPassword',data.roles)">
+                                重置密码</button>
+
+                            <button *ngIf="data.status!=1" nz-button nzType="default" nzSize="small" (click)="confirmDisable(data.displayName,data.id)"
+                                [disabled]="canOperate('disableUser',data.roles)">
+                                禁用</button>
+                            <button *ngIf="data.status==1" nz-button nzType="default" nzGhost nzSize="small" (click)="confirmEnable(data.displayName,data.id,'解禁')"
+                                [disabled]="canOperate('enableUser',data.roles)" class="button-edit modalButton2">
+                                解禁</button>
+                            <button *ngIf="data.status==2" nz-button nzType="default" nzGhost nzSize="small" (click)="confirmUnlock(data.displayName,data.id,'解锁')"
+                                [disabled]="canOperate('unlockUser',data.roles)" class="button-edit modalButton2">
+                                解锁</button>
+
+                        </td>
+                    </tr>
+                </ng-template>
+            </tbody>
+        </nz-table>
+        <ng-container *ngIf="!hasSearchResult">
+            <img src="../../../../assets/img/noResult.png" class="no-result-img" />
+            <p class="no-result-text">没有符合条件的用户</p>
+        </ng-container>
+    </div>
+</div>
+<ng-template #tplTotal>共{{nzTotal}}条</ng-template>
+
+<ng-template #tplCopy>
+    <p>请妥善保存密码,关闭页面后不予恢复！</p>
+    <button nz-button nzType="primary" ngxClipboard [cbContent]="pwdBack" (cbOnSuccess)="copySuccess()" class="fr">复制用户名和密码</button>
+</ng-template>

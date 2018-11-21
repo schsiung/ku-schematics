@@ -4,7 +4,7 @@
   "description": "A blank schematics",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && jasmine src/**/*_spec.js"
+    "test": "npm run build && jasmine src/**/*.spec.js"
   },
   "keywords": [
     "schematics"
@@ -13,11 +13,15 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
+    "@angular-devkit/build-angular": "~0.8.0",
     "@angular-devkit/core": "^7.0.5",
     "@angular-devkit/schematics": "^7.0.5",
-    "@types/jasmine": "^2.6.0",
+    "@angular/cli": "^7.0.6",
+    "@schematics/schematics": "^0.10.6",
+    "@types/jasmine": "2.6.0",
     "@types/node": "^8.0.31",
-    "jasmine": "^2.8.0",
-    "typescript": "~3.1.6"
+    "jasmine": "2.6.0",
+    "parse5": "^5.1.0",
+    "typescript": "~2.7.2"
   }
 }

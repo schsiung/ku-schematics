@@ -1,0 +1,30 @@
+{
+    "app": {
+        "name": "中证征信基础开发平台",
+        "description": "中证征信基础开发平台-旨在提供统一的开发框架"
+    },
+    "user": {
+        "name": "陈子文",
+        "avatar": "./assets/img/zorro.svg",
+        "email": "czw@chinacscs.com",
+        "token": "123456789"
+    },
+
+    "aclRules": [{
+            "url": "/account",
+            "title": "用户管理",
+            "guard": {
+                "mode": "oneOf",
+                "role": ["admin"]
+            }
+        },
+        {
+            "url": "/roles",
+            "title": "角色管理",
+            "guard": {
+                "mode": "oneOf",
+                "role": ["admin"]
+            }
+        }
+    ]
+}

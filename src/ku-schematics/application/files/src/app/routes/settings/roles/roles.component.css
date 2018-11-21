@@ -1,0 +1,34 @@
+[nz-button] {
+  margin-right: 8px;
+}
+.link-eye i {
+  margin-left: 5px;
+}
+.search-block {
+  width: 50%;
+}
+.search-block .ant-form-item-control-wrapper {
+  width: 220px;
+  margin-right: 10px;
+}
+.search-block button {
+  margin-top: 4px;
+}
+.total {
+  margin-top: -48px;
+}
+.authSquare {
+  padding: 3px 8px;
+  display: block;
+  float: left;
+}
+.authContainer {
+  display: block;
+}
+.authContainer .authSquare {
+  border-bottom: 1px solid #eee;
+  padding: 10px 8px;
+}
+.authTd {
+  display: inline-block;
+}

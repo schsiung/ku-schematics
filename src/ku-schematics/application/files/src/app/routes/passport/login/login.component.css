@@ -1,0 +1,90 @@
+:host {
+  display: block;
+  width: 368px;
+  margin: 0 auto 0 130px;
+}
+:host ::ng-deep .tabs {
+  padding: 0 2px;
+  margin: 0 -2px;
+}
+:host ::ng-deep .tabs .ant-tabs-tab {
+  font-size: 16px;
+  line-height: 24px;
+}
+:host ::ng-deep .tabs .ant-input-affix-wrapper .ant-input:not(:first-child) {
+  padding-left: 34px;
+}
+:host ::ng-deep .ant-tabs .ant-tabs-bar {
+  border-bottom: 0;
+  margin-bottom: 24px;
+  text-align: center;
+}
+:host ::ng-deep .ant-form-item {
+  margin-bottom: 24px;
+}
+:host ::ng-deep .icon-alipay,
+:host ::ng-deep .icon-taobao,
+:host ::ng-deep .icon-weibo {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  background: url("https://gw.alipayobjects.com/zos/rmsportal/itDzjUnkelhQNsycranf.svg");
+  margin-left: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+:host ::ng-deep .icon-alipay {
+  background-position: -24px 0;
+}
+:host ::ng-deep .icon-alipay:hover {
+  background-position: 0 0;
+}
+:host ::ng-deep .icon-taobao {
+  background-position: -24px -24px;
+}
+:host ::ng-deep .icon-taobao:hover {
+  background-position: 0 -24px;
+}
+:host ::ng-deep .icon-weibo {
+  background-position: -24px -48px;
+}
+:host ::ng-deep .icon-weibo:hover {
+  background-position: 0 -48px;
+}
+:host ::ng-deep .other {
+  text-align: left;
+  margin-top: 24px;
+  line-height: 22px;
+}
+:host ::ng-deep .other .register {
+  float: right;
+}
+.ant-btn__block {
+  width: 100%;
+  box-shadow: 0px 0px 3px gray;
+  outline: none;
+  border: none;
+  background: #363eab;
+  /* Old browsers */
+  background: -moz-linear-gradient(left, #363eab 0%, #1890ff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #363eab 0%, #1890ff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #363eab 0%, #1890ff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+.verify-area {
+  margin-bottom: 0px;
+}
+.verification {
+  margin-left: 4%;
+  height: 40px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+}
+.verification img {
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  cursor: pointer;
+}

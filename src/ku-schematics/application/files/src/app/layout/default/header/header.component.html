@@ -1,0 +1,50 @@
+<div class="logo">
+    <a [routerLink]="['/']">
+        <img class="expanded" src="./assets/img/KU ai-03.png" alt="{{settings.app.name}}" style="width:85px; height: 31px;" />
+        <img class="collapsed" src="./assets/img/KU ai-04.png" alt="{{settings.app.name}}" style="width:34.5px; height: 31px;" />
+    </a>
+</div>
+<div class="top-nav-wrap">
+    <ul class="top-nav">
+        <!-- Menu -->
+        <li>
+            <div class="item" (click)="toggleCollapsedSideabar()">
+                <i class="anticon anticon-menu-{{settings.layout.collapsed ? 'unfold' : 'fold'}}"></i>
+            </div>
+        </li>
+
+    </ul>
+    <ul class="top-nav">
+        <!-- Notify -->
+
+        <!-- Task -->
+        <!-- <li class="hidden-xs">
+            <header-task></header-task>
+        </li> -->
+        <!-- App Icons -->
+
+        <!-- Settings -->
+        <li class="hidden-xs">
+            <!-- <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+                <div class="item" nz-dropdown>
+                    <i nz-icon type="ellipsis" theme="outline"></i>
+                </div>
+                <div nz-menu style="width:200px;">
+                   <div nz-menu-item class="theme-switch">
+                        <header-theme></header-theme>
+                    </div> 
+                    <div nz-menu-item>
+                        <header-fullscreen></header-fullscreen>
+                    </div>
+                   
+                         <div nz-menu-item>
+                        <header-storage></header-storage>
+                    </div>
+                </div>
+            </nz-dropdown> -->
+        </li>
+        <li class="hidden-xs">
+            <header-user></header-user>
+        </li>
+    </ul>
+</div>

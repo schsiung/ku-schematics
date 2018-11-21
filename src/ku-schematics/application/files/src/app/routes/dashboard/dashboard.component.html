@@ -1,0 +1,88 @@
+<div class="content__title">
+    <h1>文档</h1>
+</div>
+<div class="cscs-card-body">
+    <div class="cscs-card-content-left">
+        <ul nz-menu [nzMode]="'inline'" style="width: 240px;">
+            <li nz-submenu nzOpen="true">
+                <span title>指令</span>
+                <ul>
+                    <li nz-menu-item>资源权限控制</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="cscs-card-content-right">
+        <p class="cscs-h1">资源权限控制</p>
+        <p class="cscs-para">为特定限制性资源提供权限控制。</p>
+        <p class="cscs-h2">何时使用</p>
+        <p class="cscs-para">用户权限控制几乎每个系统都会涉及到，主要分为粗粒度URL级别的权限控制和细粒度的方法级别权限控制。</p>
+        <p class="cscs-para">我们在后台系统的操作，无论 是点击一个按钮，还是点击一个菜单项，都是在访问服务器端的一个资源。</p>
+        <p class="cscs-para">我们采取基于资源的角色授权机制，按一定粒度将各个模块或操作定义为相应的资源，通过将资源授权给角色，并给用户分配角色，来控制用户的访问权限。</p>
+        <!-- 代码演示 -->
+        <p class="cscs-h2">代码演示</p>
+        <p class="cscs-h2">方案一：自定义结构指令<span class="api-type-label">DIRECTIVE</span></p>
+        <!-- 代码示例 -->
+        <p class="cscs-label">示例1:</p>
+        <div class="cscs-code-area">
+            <pre>&lt;button nz-button nzType="primary" *kuAuthControl=" {{ '{' }}code:'demo:click',control:'disabled' {{ '}' }}" &gt;demo:click&lt;/button&gt; 
+                        <br>// control的disabled值仅约束表单元素,加在非表单元素中无效</pre>
+        </div>
+        <p>若无权限,下方虚线框内按钮变为disabled状态</p>
+        <div class="cscs-example-area">
+            <button nz-button nzType="primary" *kuAuthControl="{code:'demo:click',control:'disabled'}">demo:click</button>
+        </div>
+        <p>注: 可自行修改.ant-btn[disabled]的样式</p>
+        <p class="cscs-label">示例2:</p>
+        <div class="cscs-code-area">
+            <pre>&lt;button nz-button nzType="primary" *kuAuthControl=" {{ '{' }}code:'demo:click',control:'hide' {{ '}' }}" &gt;demo:click&lt;/button&gt; // 用于所有元素 </pre>
+        </div>
+        <p>若无权限,下方虚线框内按钮变为隐藏状态 ( 注:实际为从dom树中移除 )</p>
+        <div class="cscs-example-area">
+            <button nz-button nzType="primary" *kuAuthControl="{code:'demo:click',control:'hide'}">demo:click</button>
+        </div>
+        <!-- 参数说明 -->
+        <p class="cscs-h2">参数说明</p>
+        <nz-table class="cscsTable" [nzData]="[1]" [nzHideOnSinglePage]="true">
+            <thead>
+                <tr>
+                    <th>参数</th>
+                    <th>说明</th>
+                    <th>类型</th>
+                    <th>默认值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="cscs-code">*kuAuthControl </span></td>
+                    <td>权限码。参数： code | control。control值： disabled | hide</td>
+                    <td><span class="cscs-para-type">Object</span></td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </nz-table>
+        <p class="cscs-h2">方案二：[disabled]属性绑定控制函数</p>
+        <div class="cscs-code-area">
+            <pre>&lt;button nz-button nzType="primary"  [disabled]="!hasAuth('demo:click')"  &gt;&lt;/button&gt; // 用于表单元素</pre>
+            <pre>
+                    constructor(){{ '{' }}private service: AuthGuard {{ '}' }}
+                    <br>
+                    hasAuth(code):boolean {{ '{' }}
+                        if(this.service.hasAuth(code)){{ '{' }}
+                            return true;
+                            {{ '}' }}else{{ '{' }}
+                            return false;
+                            {{ '}' }}
+                            {{ '}' }}
+                </pre>
+        </div>
+        <p class="cscs-h2">方案三：[class]属性控制样式</p>
+        <div class="cscs-code-area">
+            <pre>&lt;div [class]="{{ '{' }}'noAuthClass':!hasAuth('demo:click'){{ '}' }}"  &gt;&lt;/div&gt;</pre>
+        </div>
+        <p class="cscs-h2">方案四：*ngIf指令控制显隐<span class="api-type-label">DIRECTIVE</span></p>
+        <div class="cscs-code-area">
+            <pre>&lt;div *ngIf="!hasAuth('demo:click')"  &gt;&lt;/div&gt;</pre>
+        </div>
+    </div>
+</div>

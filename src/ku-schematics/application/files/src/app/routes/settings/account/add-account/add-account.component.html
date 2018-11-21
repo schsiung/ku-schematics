@@ -1,0 +1,65 @@
+<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()" class="cscsForm" (keyup.enter)="submitForm()">
+
+    <nz-form-item class="formItem">
+        <nz-form-label [nzSpan]="6" nzRequired nzFor="userName">用户名</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input formControlName="userName" id="userName" [placeholder]="requiredPlaceholder" [readonly]="isReadonly"
+                autocomplete="off" #focusInput>
+            <nz-form-explain *ngIf="validateForm.get('userName').dirty && validateForm.get('userName').errors">
+                <ng-container *ngIf="validateForm.get('userName').hasError('nomatch')">
+                    1-40位，限字母、数字、下划线
+                </ng-container>
+            </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item class="formItem">
+        <nz-form-label [nzSpan]="6" nzRequired nzFor="displayName">显示名</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <input nz-input formControlName="displayName" id="displayName" [placeholder]="requiredPlaceholder"
+                [readonly]="isReadonly" autocomplete="off">
+            <nz-form-explain *ngIf="validateForm.get('displayName').dirty && validateForm.get('displayName').errors">
+                <ng-container *ngIf="validateForm.get('displayName').hasError('overLength')">
+                    1-40位，限字母、数字、下划线
+                </ng-container>
+            </nz-form-explain>
+        </nz-form-control>
+    </nz-form-item>
+    <!-- <nz-form-item class="formItem">
+        <nz-form-label [nzSpan]="8" nzFor="status" nzRequired>用户状态</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+            <nz-select formControlName="status" nzPlaceHolder="选择" [nzDisabled]="isReadonly">
+                <nz-option nzLabel="正常" nzValue='0'>正常</nz-option>
+                <nz-option nzLabel="禁用" nzValue='1'>禁用</nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item> -->
+
+    <ng-container *ngIf="attr.length>0">
+        <nz-form-item class="formItem" *ngFor="let item of attr;let i = index">
+            <nz-form-label [nzSpan]="6" [nzFor]="item.key" [nzRequired]="item.required">{{item.displayName}}</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <input nz-input [formControlName]="item.key" [attr.id]="item.id" [placeholder]="item.required&&!isReadonly?requiredPlaceholder:''"
+                    [readonly]="isReadonly" autocomplete="off">
+                <nz-form-explain *ngIf="getFormControl(item.key)?.dirty&&getFormControl(item.key)?.hasError('required')"></nz-form-explain>
+            </nz-form-control>
+        </nz-form-item>
+    </ng-container>
+
+    <ng-container *ngIf="!roles">
+        <nz-form-item class="rolesArea">
+            <nz-form-label [nzSpan]="6" nzFor="roles">角色</nz-form-label>
+            <nz-form-control [nzSpan]="14">
+                <nz-select style="width: 100%" formControlName="roles" nzMode="multiple" [nzPlaceHolder]="rolePlaceholder"
+                    nzNotFoundContent="暂无数据" nzDropdownClassName="cscsForm rolesSelectForm" [nzDisabled]="isReadonly">
+                    <nz-option *ngFor="let option of checkOptions" [nzLabel]="option.label" [nzValue]="option.value"></nz-option>
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+    </ng-container>
+    <!-- <ng-container *ngIf="!roles">
+        <nz-form-item nz-row class="rolesArea" [nzFlex]="true">
+            <nz-form-label style="width:11.5%;float:left;" nzFor="roles">角色</nz-form-label>
+            <nz-checkbox-group class="checkbox" [(ngModel)]="checkOptions" formControlName="roles" [nzDisabled]="isReadonly"></nz-checkbox-group>
+        </nz-form-item>
+    </ng-container> -->
+</form>

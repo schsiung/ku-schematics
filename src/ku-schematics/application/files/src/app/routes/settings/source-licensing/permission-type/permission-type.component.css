@@ -1,0 +1,13 @@
+[nz-button] {
+  margin-right: 8px;
+}
+.search-block {
+  width: 50%;
+}
+.search-block .ant-form-item-control-wrapper {
+  width: 220px;
+  margin-right: 10px;
+}
+.search-block button {
+  margin-top: 4px;
+}

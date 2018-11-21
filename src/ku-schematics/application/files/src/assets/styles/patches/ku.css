@@ -1,0 +1,574 @@
+/* 自定义表格样式的覆盖 */
+
+.ant-input,
+.ant-select-selection,
+.ant-btn {
+    border-width: 1px !important;
+    font-size: 12px;
+}
+
+.ant-modal-body {
+    padding: 15px 24px;
+    height: auto;
+    overflow: hidden;
+}
+
+.ant-popover-inner-content {
+    max-width: 400px;
+    height: auto;
+    overflow: hidden;
+}
+
+.ant-message {
+    top: 45% !important;
+}
+
+.ant-row {
+    margin-bottom: 15px;
+}
+
+.ant-btn-sm>.ant-btn {
+    line-height: 1 !important;
+}
+
+.ant-modal-header {
+    padding: 13px 24px;
+}
+
+.ant-modal-footer {
+    padding: 8px 16px;
+}
+
+.ant-btn-sm {
+    font-size: 12px;
+}
+
+.cscs-full-card {
+    /* position: fixed;
+    top: 131px;
+    bottom: 0px;
+    right: 15px;
+    left: 80px; */
+
+}
+
+.cscs-full-card .ant-menu {
+    float: left;
+}
+
+.cscs-card-body {
+    padding: 20px;
+    height: auto;
+    overflow: hidden;
+    display: flex;
+    background: white;
+    position: relative;
+    justify-content: start;
+}
+
+.cscs-card-body .cscs-card-content-left {
+    position: fixed
+}
+
+
+.cscs-card-content-right {
+    overflow-y: auto;
+    padding-right: 15px;
+    float: left;
+    margin-left: 261px;
+    width: 100%;
+}
+
+.api-type-label {
+    color: #1890ff !important;
+    border: 2px solid #1890ff;
+    padding: 1px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    line-height: 18px;
+    display: inline;
+    vertical-align: middle;
+    color: #fff;
+    margin-left: 8px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+
+.cscs-h1 {
+    font-size: 26px;
+    color: #0d1a26;
+    margin-bottom: 20px;
+}
+
+.cscs-h2 {
+    color: #0d1a26;
+    font-size: 22px;
+    margin: 25px 0 15px 0;
+}
+
+.cscs-para {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #314659;
+    margin-bottom: 5px;
+}
+
+.cscs-code-area {
+    margin-bottom: 25px;
+}
+
+.cscs-label {
+    border-left: 5px solid #1890ff;
+    text-indent: 10px;
+    line-height: 1.8;
+    background: #f1f8ff;
+}
+
+.cscs-example-area {
+    padding: 16px 19px;
+    margin-bottom: 20px;
+    border: 1px dashed #ccc;
+    display: inline-block;
+}
+
+.cscs-code-area pre {
+    padding: 15px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    text-align: left;
+    margin-bottom: 20px;
+    word-break: break-word;
+    white-space: inherit;
+}
+
+.cscs-code {
+    margin: 0 1px;
+    background: #f2f4f5;
+    padding: .2em .4em;
+    border-radius: 3px;
+    font-size: .9em;
+    border: 1px solid #eee;
+    color: #003a8c;
+}
+
+.cscs-para-type {
+    color: #c41d7f;
+}
+
+.cscs-code textarea:disabled,
+input:not([type]):disabled,
+input[type="color"i]:disabled,
+input[type="date"i]:disabled,
+input[type="datetime"i]:disabled,
+input[type="datetime-local"i]:disabled,
+input[type="email"i]:disabled,
+input[type="month"i]:disabled,
+input[type="password"i]:disabled,
+input[type="number"i]:disabled,
+input[type="search"i]:disabled,
+input[type="tel"i]:disabled,
+input[type="text"i]:disabled,
+input[type="time"i]:disabled,
+input[type="url"i]:disabled,
+input[type="week"i]:disabled {
+    /* background-color: rgba(210, 210, 210, 0.25) !important; */
+    border-color: #ffffff !important;
+    color: #333;
+    box-shadow: none;
+    cursor: default;
+    font-size: 13px;
+}
+
+.ant-btn.disabled,
+.ant-btn[disabled],
+.ant-btn.disabled:hover,
+.ant-btn[disabled]:hover,
+.ant-btn.disabled:focus,
+.ant-btn[disabled]:focus,
+.ant-btn.disabled:active,
+.ant-btn[disabled]:active,
+.ant-btn.disabled.active,
+.ant-btn[disabled].active {
+    color: rgba(0, 0, 0, 0.25) !important;
+    background-color: #fff !important;
+    border-color: #f1f1f1 !important;
+}
+
+.top-nav .item i {
+    font-size: 18px !important;
+    line-height: 100%;
+}
+
+.top-nav .item {
+    padding: 8px 20px;
+}
+
+.cscsForm .ant-select-disabled .ant-select-selection {
+    background: #fff !important;
+    cursor: default;
+}
+
+.cscsForm .ant-select-disabled .ant-select-arrow {
+    display: none !important;
+}
+
+.ant-select-disabled .ant-select-selection {
+    border-color: #fff !important;
+    color: #7b7b7b !important;
+}
+
+.ant-form-text {
+    line-height: 1.8;
+    font-size: 13px;
+    color: #333;
+    padding: 4px 11px;
+}
+
+.ant-form label {
+    font-size: 13px;
+    color: #333;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #fff;
+    background-image: none;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+textarea:read-only,
+input:not([type]):read-only,
+input[type="color"i]:read-only,
+input[type="date"i]:read-only,
+input[type="datetime"i]:read-only,
+input[type="datetime-local"i]:read-only,
+input[type="email"i]:read-only,
+input[type="month"i]:read-only,
+input[type="password"i]:read-only,
+input[type="number"i]:read-only,
+input[type="search"i]:read-only,
+input[type="tel"i]:read-only,
+input[type="text"i]:read-only,
+input[type="time"i]:read-only,
+input[type="url"i]:read-only,
+input[type="week"i]:read-only {
+    background-color: #fff !important;
+    border-color: #ffffff !important;
+    color: #333 !important;
+    box-shadow: none;
+    cursor: default;
+    font-size: 13px;
+}
+
+.ant-form-item label {
+    margin-top: 8px;
+}
+
+.ant-table-header {
+    overflow-y: hidden !important;
+}
+
+/* .ant-table-header table {
+    padding-right: 16px !important;
+} */
+
+.ant-table-body {
+    overflow-y: auto !important;
+}
+
+.ant-modal-title {
+    word-break: break-all;
+    padding-right: 20px;
+}
+
+.ant-btn {
+    border-radius: 3px;
+}
+
+.ant-modal-header {
+    padding: 17px 24px;
+}
+
+.ant-modal-footer {
+    padding: 14px 16px;
+}
+
+.ant-row {
+    margin-bottom: 20px;
+}
+
+.ant-card {
+    width: 100%;
+    float: left;
+}
+
+/* .ant-table-body table {
+    padding-right: 16px !important;
+} */
+
+/* 
+自定义表格1
+ */
+
+.cscsTable th .ant-checkbox-wrapper {
+    float: left !important;
+    margin-left: 5px;
+}
+
+.cscsTable tbody .ant-checkbox-wrapper {
+    float: left !important;
+    margin-left: 5px;
+}
+
+.cscsTable .ant-table-thead>tr>th,
+.ant-table-tbody>tr>td {
+    padding: 9px;
+    line-height: 21px !important;
+    height: 21px !important;
+    font-size: 13px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+:host .ant-form-item-label label {
+    padding-right: 10px !important;
+}
+
+::ng-deep .ant-form-item-label label {
+    padding-right: 10px !important;
+}
+
+:root .ant-form-item-label label {
+    padding-right: 10px !important;
+}
+
+:host /deep/ .ant-form-item-label label {
+    padding-right: 10px !important;
+}
+
+.cscsTable .ant-table-tbody>tr>td>a {
+    font-size: 11px;
+    color: #353153;
+}
+
+.cscsTable .ant-divider,
+.ant-divider-vertical {
+    margin: 0 14px;
+}
+
+.cscsTable .button-edit {
+    color: rgb(35, 151, 247);
+}
+
+.cscsTable .ant-table-thead>tr:first-child>th:first-child {
+    padding-left: 34px;
+}
+
+.cscsTable .ant-table-tbody>tr>td:first-child {
+    padding-left: 34px;
+}
+
+.cscsTable .ant-table-thead>tr>th {
+    background: #f5f7fa;
+    color: #a7b1d1;
+    font-weight: bold;
+    border-color: #e4e8f4;
+}
+
+.cscsTable .ant-table-pagination.ant-pagination {
+    float: right;
+}
+
+.cscsTable .ant-table-column-sorter,
+.cscsTable .ant-table-thead>tr>th .anticon-filter,
+.ant-table-thead>tr>th .ant-table-filter-icon {
+    /* color: #6479c2; */
+}
+
+.ant-table-thead>tr>th .ant-table-filter-selected.anticon-filter {
+    color: #1890ff;
+}
+
+.cscsTable .ant-table-tbody>tr>td {
+    color: #353153;
+    font-family: "微软雅黑" !important;
+}
+
+.cscsTable .ant-btn-background-ghost.ant-btn-primary {
+    color: rgb(35, 151, 247);
+    border-color: rgb(35, 151, 247)
+}
+
+.cscsTable .ant-btn-sm {
+    font-size: 11px !important;
+}
+
+.cscsTable button {
+    padding: 0 20px;
+    color: #353153;
+    border-color: #DDE3F6;
+}
+
+.cscsTable thead tr th a {
+    color: #a7b1d1;
+    float: left;
+    position: inherit;
+}
+
+.cscsTable .ant-table-thead>tr>th .ant-table-column-sorter {
+    float: left;
+    position: inherit;
+    margin: 1px 8px;
+}
+
+.cscsTable .ant-table-thead>tr>th .anticon-filter {
+    float: left;
+    position: inherit;
+    margin: 4px 8px;
+    width: auto;
+    height: auto;
+}
+
+.cscsTable .ant-table-thead>tr>th div {
+    float: left;
+}
+
+.cscsTable .ant-table-thead>tr>th .anticon-filter>svg,
+.ant-table-thead>tr>th .ant-table-filter-icon>svg {
+    position: inherit;
+    float: left;
+    margin: 0px;
+}
+
+.cscsTable .ant-pagination-item,
+.cscsTable .ant-pagination-prev,
+.cscsTable .ant-pagination-next,
+.cscsTable .ant-pagination-jump-prev,
+.cscsTable .ant-pagination-jump-next {
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+}
+
+.cscsTable .ant-pagination-prev .ant-pagination-item-link:after,
+.cscsTable .ant-pagination-next .ant-pagination-item-link:after {
+    height: 26px;
+}
+
+.cscsTable .ant-table-thead>tr.ant-table-row-hover>td,
+.cscsTable .ant-table-tbody>tr.ant-table-row-hover>td,
+.cscsTable .ant-table-thead>tr:hover>td,
+.cscsTable .ant-table-tbody>tr:hover>td {
+    background: #f5f7fa;
+}
+
+.cscsTable .ant-pagination-item-active {
+    background: #1890ff;
+}
+
+.cscsTable .ant-pagination-item-active a {
+    color: white;
+}
+
+/* 自定义table end */
+
+/* 自定义form */
+
+.cscsForm .ant-select-selection--multiple .ant-select-arrow {
+    cursor: pointer;
+    top: 9px;
+    margin-top: 0px;
+    color: #1890FF;
+    font-size: 14px;
+}
+
+.cscsForm .ant-select-selection--multiple .ant-select-arrow .ant-select-arrow-icon svg {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+}
+
+.cscsForm .ant-select-selection--multiple .ant-select-arrow .ant-select-arrow-icon svg * {
+    d: path('M 848 474 H 550 V 152 h -76 v 322 H 176 c -4.4 0 -8 3.6 -8 8 v 60 c 0 4.4 3.6 8 8 8 h 298 v 322 h 76 V 550 h 298 c 4.4 0 8 -3.6 8 -8 v -60 c 0 -4.4 -3.6 -8 -8 -8 Z');
+}
+
+.cscsForm .ant-select-open .ant-select-selection--multiple .ant-select-arrow .ant-select-arrow-icon svg * {
+    d: path('M 912 190 h -69.9 c -9.8 0 -19.1 4.5 -25.1 12.2 L 404.7 724.5 L 207 474 a 32 32 0 0 0 -25.1 -12.2 H 112 c -6.7 0 -10.4 7.7 -6.3 12.9 l 273.9 347 c 12.8 16.2 37.4 16.2 50.3 0 l 488.4 -618.9 c 4.1 -5.1 0.4 -12.8 -6.3 -12.8 Z');
+}
+
+.cscsForm .ant-select-selection__rendered {
+    margin-right: 25px;
+}
+
+.rolesSelectForm .ant-select-dropdown-menu {
+    padding-bottom: 5px;
+}
+
+.rolesSelectForm .ant-input,
+.ant-select-selection {
+    font-size: 11px;
+}
+
+.rolesSelectForm .ant-select-dropdown-menu .ant-select-dropdown-menu-item-selected,
+.ant-select-dropdown-menu-item-selected:hover {
+    color: rgba(0, 0, 0, 0.4)
+}
+
+.rolesSelectForm .ant-select-dropdown-menu .ant-select-dropdown-menu-item {
+    width: 47%;
+    float: left;
+    margin: 5px 0 0 2%;
+    font-size: 11px;
+    padding-right: 26px;
+}
+
+/* 自定义form end*/
+
+.cscs-bg-1 {
+    background: #62b4ff;
+}
+
+.cscs-bg-2 {
+    background: #ff275f;
+}
+
+.cscs-bg-3 {
+    background: #f8bf53;
+}
+
+form textarea.ant-input {
+    height: auto;
+    overflow: auto !important;
+}
+
+:root .ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:after {
+    font-size: 12px;
+}
+
+.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item-selected:after,
+.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item-selected:hover:after {
+    color: #1890ff !important;
+    display: inline-block;
+}
+
+.ant-select-dropdown.ant-select-dropdown--multiple .ant-select-dropdown-menu-item:after {
+    font-family: anticon;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e632";
+    color: transparent;
+    display: inline-block;
+    font-size: 12px;
+    font-size: 10px\9;
+    -webkit-transform: scale(.83333333) rotate(0);
+    transform: scale(.83333333) rotate(0);
+    transition: all .2s ease;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    right: 12px;
+    font-weight: 700;
+    text-shadow: 0 0.1px 0, 0.1px 0 0, 0 -0.1px 0, -0.1px 0;
+}

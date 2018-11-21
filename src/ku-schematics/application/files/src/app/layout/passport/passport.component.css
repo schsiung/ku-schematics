@@ -1,0 +1,55 @@
+:host ::ng-deep .container {
+  background: #fff;
+  background-image: url("../../../assets/img/login-bg.png");
+  background-repeat: no-repeat;
+  background-position: center 20%;
+  background-size: auto 160%;
+  height: 100%;
+  position: relative;
+}
+:host ::ng-deep .login-box {
+  position: fixed;
+  width: 870px;
+  height: 480px;
+  top: 50%;
+  left: 50%;
+  margin-top: -240px;
+  margin-left: -435px;
+  background: white;
+  box-shadow: 0px 0px 46px #cbd2d8;
+  background-image: url("../../../assets/img/login-box-bg.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+:host ::ng-deep .top {
+  text-align: left;
+  margin: 45px 0 0 130px;
+}
+:host ::ng-deep .top .head {
+  outline: none;
+}
+:host ::ng-deep .logo {
+  height: 46px;
+  display: block;
+}
+:host ::ng-deep .title {
+  font-size: 33px;
+  font-family: "CenturyGothic-Bold", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  margin-top: 12px;
+  display: block;
+  color: #333;
+  line-height: 1;
+}
+:host ::ng-deep .desc {
+  font-size: 14px;
+  color: #545456;
+  margin-bottom: 22px;
+  display: block;
+}
+:host ::ng-deep .footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+}
