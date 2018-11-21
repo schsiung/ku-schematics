@@ -1,0 +1,9 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "schematics": {
+    "ku-schematics": {
+      "description": "A blank schematic.",
+      "factory": "./ku-schematics/index#kuSchematics"
+    }
+  }
+}
