@@ -71,8 +71,7 @@ function patchPackageJson(options: ApplicationOptions) {
     // For package.json, we simply add or relace the following fields
     const jobs = ["scripts", "dependencies", "devDependencies", "lint-staged"];
     const json = getPackage(host);
-    // url('./files/root/package.json') 访问此路不通
-    // 考虑直接写死 or 底层JSON文件读写API
+
     const jsonTpl = require('./files/root/package.json');
     jobs.forEach(field => {
       // How to fetch the field from jsonTpl? question remained!!
@@ -128,8 +127,24 @@ function patchAngularJson() {
     const angularJsonFile = 'angular.json';
     const json = getJSON(host, angularJsonFile, 'schematics');
     if (json == null) return host;
-    // Do Nothing
-    // overwriteJSON(host, angularJsonFile, json);
+    // Do as follows:
+    // 1.styles paths should be changed to "src/assets/styles/styles.less"
+    // 2.assets paths should be changed 
+    // 3.local build environment should be added
+    const jsonTpl = require('./files/root/angular.json');
+
+    const projectName = project.name;
+    const tplName = "ku-ng-startup";
+
+    json["projects"][projectName]["architect"]["build"]["options"]["assets"] = jsonTpl["projects"][tplName]["architect"]["build"]["options"]["assets"];
+    json["projects"][projectName]["architect"]["build"]["options"]["styles"] = jsonTpl["projects"][tplName]["architect"]["build"]["options"]["styles"];
+
+    json["projects"][projectName]["architect"]["build"]["configurations"]["local"] = jsonTpl["projects"][tplName]["architect"]["build"]["configurations"]["local"];
+    json["projects"][projectName]["architect"]["serve"]["configurations"]["local"] = jsonTpl["projects"][tplName]["architect"]["serve"]["configurations"]["local"];
+
+    json["projects"][projectName]["architect"]["test"]["options"]["styles"] = jsonTpl["projects"][tplName]["architect"]["test"]["options"]["styles"];
+
+    overwriteJSON(host, angularJsonFile, json);
     return host;
   };
 }
@@ -181,7 +196,7 @@ export default function (options: ApplicationOptions): Rule {
 
       patchAngularJson(),
 
-      // // files
+      // files
       removeOrginalFiles(),
       addFilesToRoot(options),
 
