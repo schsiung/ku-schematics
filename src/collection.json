@@ -1,5 +1,9 @@
 {
   "schematics": {
+    "see": {
+      "description": "A blank schematic.",
+      "factory": "./see/index#see"
+    },
     "application": {
       "factory": "./application",
       "schema": "./application/schema.json",

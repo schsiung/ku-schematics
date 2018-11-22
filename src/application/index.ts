@@ -15,6 +15,7 @@ import {
 import { strings } from '@angular-devkit/core';
 import { NodePackageInstallTask } from '@angular-devkit/schematics/tasks';
 import * as path from 'path';
+const fs = require('fs');
 
 import { Schema as ApplicationOptions } from './schema';
 import {
@@ -43,6 +44,12 @@ function removeOrginalFiles() {
     [
       `${project.root}/README.md`,
       `${project.sourceRoot}/main.ts`,
+      `${project.sourceRoot}/index.html`,
+      `${project.sourceRoot}/karma.conf.js`,
+      `${project.sourceRoot}/polyfills.ts`,
+      `${project.sourceRoot}/test.ts`,
+      `${project.sourceRoot}/tsconfig.app.json`,
+      `${project.sourceRoot}/tsconfig.spec.json`,
       `${project.sourceRoot}/environments/environment.prod.ts`,
       `${project.sourceRoot}/environments/environment.ts`,
       `${project.sourceRoot}/styles.less`,
@@ -63,15 +70,15 @@ function patchPackageJson(options: ApplicationOptions) {
   return (host: Tree, context: SchematicContext) => {
     // For package.json, we simply add or relace the following fields
     const jobs = ["scripts", "dependencies", "devDependencies", "lint-staged"];
-    const jsonTpl = url('./files/root/package.json');
-    debugger;
     const json = getPackage(host);
-    console.log('package.json jsonTpl', jsonTpl);
+    // url('./files/root/package.json') 访问此路不通
+    // 考虑直接写死 or 底层JSON文件读写API
+    const jsonTpl = require('./files/root/package.json');
     jobs.forEach(field => {
       // How to fetch the field from jsonTpl? question remained!!
       json[field] = jsonTpl[field];
     })
-    console.log('package.json after addDependenciesToPackageJson', json)
+
     overwritePackage(host, json);
     return host;
   };
@@ -172,10 +179,9 @@ export default function (options: ApplicationOptions): Rule {
     return chain([
       patchPackageJson(options),
 
-      addPathsToTsConfig(),
-
       patchAngularJson(),
-      // files
+
+      // // files
       removeOrginalFiles(),
       addFilesToRoot(options),
 
