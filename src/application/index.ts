@@ -141,7 +141,7 @@ function patchAngularJson() {
 
     json["projects"][projectName]["architect"]["build"]["configurations"]["local"] = jsonTpl["projects"][tplName]["architect"]["build"]["configurations"]["local"];
     json["projects"][projectName]["architect"]["serve"]["configurations"]["local"] = jsonTpl["projects"][tplName]["architect"]["serve"]["configurations"]["local"];
-
+    json["projects"][projectName]["architect"]["serve"]["configurations"]["local"]["browserTarget"] = json["projects"][projectName]["architect"]["serve"]["configurations"]["local"]["browserTarget"].replace(tplName, projectName);
     json["projects"][projectName]["architect"]["test"]["options"]["styles"] = jsonTpl["projects"][tplName]["architect"]["test"]["options"]["styles"];
 
     overwriteJSON(host, angularJsonFile, json);
