@@ -5,6 +5,7 @@ import { Rule, SchematicContext, Tree } from '@angular-devkit/schematics';
 // per file.
 export function see(_options: any): Rule {
   return (tree: Tree, _context: SchematicContext) => {
+    console.log('Now you see me!');
     return tree;
   };
 }

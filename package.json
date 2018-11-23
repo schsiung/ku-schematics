@@ -1,5 +1,5 @@
 {
-  "name": "ku-schematics",
+  "name": "@ku/schematics",
   "version": "0.0.1",
   "description": "A blank schematics",
   "scripts": {
@@ -13,18 +13,11 @@
   "license": "MIT",
   "schematics": "./src/collection.json",
   "dependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
-    "@angular-devkit/core": "^7.0.5",
-    "@angular-devkit/schematics": "^7.0.5",
-    "@angular/cli": "^7.0.6",
-    "@schematics/schematics": "^0.10.6",
-    "@types/jasmine": "2.6.0",
+    "@angular-devkit/core": "^0.3.1",
+    "@angular-devkit/schematics": "^0.3.1",
+    "@types/jasmine": "^2.6.0",
     "@types/node": "^8.0.31",
-    "jasmine": "2.6.0",
-    "parse5": "^5.1.0",
+    "jasmine": "^2.6.0",
     "typescript": "~2.7.2"
-  },
-  "publishConfig": {
-    "registry": "http://repo.chinacscs.com:8081/repository/npm_internal/"
   }
 }
