@@ -9,6 +9,11 @@
       "schema": "./application/schema.json",
       "description": "Create an Ku application."
     },
+    "ng-add": {
+      "factory": "./application",
+      "schema": "./application/schema.json",
+      "description": "Create an Ku application."
+    },
     "kuAdd": {
       "factory": "./application",
       "schema": "./application/schema.json",

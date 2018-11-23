@@ -23,5 +23,8 @@
     "jasmine": "2.6.0",
     "parse5": "^5.1.0",
     "typescript": "~2.7.2"
+  },
+  "publishConfig": {
+    "registry": "http://repo.chinacscs.com:8081/repository/npm_internal/"
   }
 }
